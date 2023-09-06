@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DbGears xmlns="http://chameleon.ibs-qa.ru/schema/db">
+    <Connection name="H2" url="jdbc:h2:tcp://localhost:9092/mem:testdb;user=user;password=pass"
+                autoCommit="true" driver="org.h2.Driver">
+    </Connection>
+    <Query name="Добавление товара" statement="INSERT INTO FOOD(FOOD_NAME, FOOD_TYPE, FOOD_EXOTIC) values(:FOOD_NAME, :FOOD_TYPE, :FOOD_EXOTIC)">
+            <Params>
+                <FieldString name="Имя" locator="FOOD_NAME"/>
+                <FieldString name="Тип" locator="FOOD_TYPE"/>
+                <FieldString name="Экзотический" locator="FOOD_EXOTIC"/>
+            </Params>
+    </Query>
+    <Query name="Список товаров" statement="SELECT * FROM FOOD">
+        <Result>
+            <FieldInteger name="Идентификатор" locator="FOOD_ID"/>
+            <FieldString name="Имя" locator="FOOD_NAME"/>
+            <FieldString name="Тип" locator="FOOD_TYPE"/>
+            <FieldString name="Экзотический" locator="FOOD_EXOTIC"/>
+        </Result>
+    </Query>
+    <Query name="Удаление товара"
+           statement="DELETE FROM FOOD WHERE FOOD_NAME = :FOOD_NAME AND FOOD_TYPE = :FOOD_TYPE AND FOOD_EXOTIC = :FOOD_EXOTIC">
+        <Params>
+            <FieldString name="Имя" locator="FOOD_NAME"/>
+            <FieldString name="Тип" locator="FOOD_TYPE"/>
+            <FieldString name="Экзотический" locator="FOOD_EXOTIC"/>
+        </Params>
+    </Query>
+</DbGears>

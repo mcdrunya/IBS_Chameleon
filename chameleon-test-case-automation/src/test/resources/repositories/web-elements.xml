@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pages xmlns="http://chameleon.ibs-qa.ru/schema/web-elements">
+    <Page name="Список товаров">
+        <StaticText name="Наименование" locator="//th[text()='Наименование']"/>
+        <Button name="Добавить" locator="//button[contains(text(),'Добавить')]"/>
+        <StaticText name="Тип" locator="//th[text()='Тип']"/>
+        <StaticText name="Экзотический" locator="//th[text()='Экзотический']"/>
+        <Collection name="Таблица с товарами" locator=".//table/tbody/tr"/>
+    </Page>
+    <Page name="Добавление товара">
+        <TextInput name="Наименование" locator="//*[contains(@id, 'name')]"/>
+        <ComboBox name="Тип"/>
+        <CheckBox name="Экзотический"/>
+        <Button name="Сохранить" locator="//*[contains(@id, 'save')]"/>
+    </Page>
+</Pages>
